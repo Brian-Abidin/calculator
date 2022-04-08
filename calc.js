@@ -35,4 +35,4 @@ const operate = function (operator, ...arg){
     return result;
 }
 
-console.log(add(100, 50, 2, 3, 3))
+console.log(operate(subtract, 5, 4,3,4,5))
