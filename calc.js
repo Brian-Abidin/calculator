@@ -31,7 +31,8 @@ const divide = function (){
 }
 
 const operate = function (operator, ...arg){
-    operator(...arg);
+    let result = operator(...arg);
+    return result;
 }
 
 console.log(add(100, 50, 2, 3, 3))
