@@ -30,4 +30,8 @@ const divide = function (){
     return quo;
 }
 
+const operate = function (operator, ...arg){
+    operator(...arg);
+}
+
 console.log(add(100, 50, 2, 3, 3))
