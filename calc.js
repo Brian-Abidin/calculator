@@ -1,17 +1,33 @@
 const add = function (){
-    let sum = 0;
-    for (let i = 0; i < arguments.length; i++) {
+    let sum = arguments[0];
+    for (let i = 1; i < arguments.length; i++) {
         sum += arguments[i];
     }
     return sum;
 }
 
 const subtract = function (){
-    let diff = 0;
-    for (let i = 0; i < arguments.length; i++) { // use arguments object to iterate through all arguments passed through function
+    let diff = arguments[0];
+    for (let i = 1; i < arguments.length; i++) {
         diff -= arguments[i];
     }
     return diff;
 }
 
-console.log(subtract(100, 5, 25, 3, 2, 3, 2,3,4,5,32,2,3,100))
+const multiply = function (){
+    let product = arguments[0];
+    for (let i = 1; i < arguments.length; i++) {
+        product *= arguments[i];
+    }
+    return product;
+}
+
+const divide = function (){
+    let quo = arguments[0];
+    for (let i = 1; i < arguments.length; i++) {
+        quo /= arguments[i];
+    }
+    return quo;
+}
+
+console.log(add(100, 50, 2, 3, 3))
