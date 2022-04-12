@@ -37,25 +37,9 @@ const operate = function (operator, ...arg){
 
 console.log(operate(subtract, 5, 4,3,4,5))
 
-
-let one = document.getElementById("1");
-one.onclick = function(event){
-    document.getElementById("display").value = 1;
-}
-
-let two = document.getElementById("2");
-two.onclick = function(event){
-    document.getElementById("display").value = 2;
-}
-
-let three = document.getElementById("3");
-three.onclick = function(event){
-    document.getElementById("display").value = 3;
-}
-
 const numPress = function(btnID){
-    let num = document.getElementById(`${btnID}`);
-    num.onclick = function(event){
-        document.getElementById("display").value = (`${btnID}`);
-    }
+    document.getElementById("display").value = (`${btnID}`);
+    let disValue = document.getElementById("display").value;
+    return disValue;
 }
+
