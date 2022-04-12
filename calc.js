@@ -36,3 +36,10 @@ const operate = function (operator, ...arg){
 }
 
 console.log(operate(subtract, 5, 4,3,4,5))
+
+
+let element = document.getElementById("1");
+element.onclick = function(event){
+    document.getElementById("display").value = 1;
+}
+
