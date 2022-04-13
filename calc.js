@@ -37,9 +37,12 @@ const operate = function (operator, ...arg){
 
 console.log(operate(subtract, 5, 4,3,4,5))
 
+let disValue = "";
+
 const numPress = function(btnID){
-    document.getElementById("display").value = (`${btnID}`);
-    let disValue = document.getElementById("display").value;
+    document.getElementById("display").value = disValue + (`${btnID}`);
+    disValue = document.getElementById("display").value;
     return disValue;
 }
+
 
