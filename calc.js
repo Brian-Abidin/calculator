@@ -42,7 +42,23 @@ let disValue = "";
 const numPress = function(btnID){
     document.getElementById("display").value = disValue + (`${btnID}`);
     disValue = document.getElementById("display").value;
-    return disValue;
+}
+
+const opPress = function(opID){
+    let value = parseInt(document.getElementById("display").value);
+    let y = 5;
+    if(`${opID}` === '+'){
+        
+        let res = operate(add, value, y);
+        console.log(res);
+    } else if (`${opID}` === '-'){
+
+    } else if (`${opID}` === '*'){
+        
+    } else if (`${opID}` === '/'){
+        
+    }
+    
 }
 
 
