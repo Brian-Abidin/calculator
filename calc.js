@@ -52,8 +52,10 @@ const numPress2 = function(btnID){
 const opPress = function(opID){
     let value = parseInt(document.getElementById("display").value);
     if(`${opID}` === '+'){
-        let value2 = parseInt(numPress2(6));
+        let value2 = parseInt(numPress2()); //need to replicate this but instead of 6, user chooses number by click on button
+        "" = document.getElementById("display").value;
         let res = operate(add, value, value2);
+
         document.getElementById("display").value = res;
     } else if (`${opID}` === '-'){
 
