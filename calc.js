@@ -44,13 +44,17 @@ const numPress = function(btnID){
     disValue = document.getElementById("display").value;
 }
 
+const numPress2 = function(btnID){
+    document.getElementById("display").value = (`${btnID}`);
+    return btnID;
+}
+
 const opPress = function(opID){
     let value = parseInt(document.getElementById("display").value);
-    let y = 5;
     if(`${opID}` === '+'){
-        
-        let res = operate(add, value, y);
-        console.log(res);
+        let value2 = parseInt(numPress2(6));
+        let res = operate(add, value, value2);
+        document.getElementById("display").value = res;
     } else if (`${opID}` === '-'){
 
     } else if (`${opID}` === '*'){
