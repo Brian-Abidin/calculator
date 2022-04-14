@@ -65,6 +65,8 @@ const opPress = function(opID){
         res = add(value, value2);
         value = res;
         console.log(res, value, value2);
+        value2 = res;
+        console.log(value2);
         disValue = "";
         document.getElementById("display").value = res;
 
