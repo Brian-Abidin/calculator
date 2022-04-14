@@ -134,15 +134,10 @@ const opPress = function(opID){
     value2 = parseInt(`${btnID}`);
 } */
     
-
 const reset = function(){
     document.getElementById("display").value = "";
     disValue = "";
     value = 0;
     value2 = 0;
     document.getElementById("display").value = 0;
-}
-
-while(disValue != ""){
-
 }
