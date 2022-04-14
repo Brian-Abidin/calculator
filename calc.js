@@ -40,7 +40,8 @@ console.log(operate(subtract, 5, 4,3,4,5))
 let disValue = "";
 
 const numPress = function(btnID){
-    document.getElementById("display").value = disValue + (`${btnID}`);
+    let num1 = `${btnID}`
+    document.getElementById("display").value = disValue + num1;
     disValue = document.getElementById("display").value;
 }
 
@@ -50,10 +51,16 @@ const numPress2 = function(btnID){
 }
 
 const opPress = function(opID){
-    let value = parseInt(document.getElementById("display").value);
     if(`${opID}` === '+'){
-        let value2 = parseInt(numPress2()); //need to replicate this but instead of 6, user chooses number by click on button
-        "" = document.getElementById("display").value;
+        let value = parseInt(document.getElementById("display").value);
+        const btns = document.getElementById('btncontain');
+        btns.addEventListener('click', (event) => {
+            const isButton = event.target.nodeName === 'BUTTON';
+            let value2 = parseInt(event.target.id);
+            if(!isButton){
+                return;
+            }
+        })
         let res = operate(add, value, value2);
 
         document.getElementById("display").value = res;
@@ -63,8 +70,17 @@ const opPress = function(opID){
         
     } else if (`${opID}` === '/'){
         
+    } else if (`${opID}` === '='){
+
+    } else if (`${opID}` === 'clear'){
+        reset();
     }
     
+}
+
+const reset = function(){
+    document.getElementById("display").value = "";
+    disValue = "";
 }
 
 
