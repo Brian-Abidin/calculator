@@ -63,19 +63,65 @@ const opPress = function(opID){
             value2 = 0; 
         }
         res = add(value, value2);
+        document.getElementById("display").value = res;
+        value = res;
+        console.log(res, value, value2);
+        value2 = res;
+        console.log(value2);
+        disValue = "";
+        if(isNaN(document.getElementById("display").value)){
+            document.getElementById("display").value = 0;
+            reset();
+        }
+        
+    } else if (`${opID}` === '-'){
+        if(res === 0){
+            value = parseInt(disValue);
+            value2 = 0; 
+        }
+        res = subtract(value, value2);
         value = res;
         console.log(res, value, value2);
         value2 = res;
         console.log(value2);
         disValue = "";
         document.getElementById("display").value = res;
-
-    } else if (`${opID}` === '-'){
-
+        if(isNaN(document.getElementById("display").value)){
+            document.getElementById("display").value = 0;
+            reset();
+        }
     } else if (`${opID}` === '*'){
-        
+        if(res === 0){
+            value = parseInt(disValue);
+            value2 = 0; 
+        }
+        res = multiply(value, value2);
+        value = res;
+        console.log(res, value, value2);
+        value2 = res;
+        console.log(value2);
+        disValue = "";
+        document.getElementById("display").value = res;
+        if(isNaN(document.getElementById("display").value)){
+            document.getElementById("display").value = 0;
+            reset();
+        }
     } else if (`${opID}` === '/'){
-        
+        if(res === 0){
+            value = parseInt(disValue);
+            value2 = 0; 
+        }
+        res = divide(value, value2);
+        value = res;
+        console.log(res, value, value2);
+        value2 = res;
+        console.log(value2);
+        disValue = "";
+        document.getElementById("display").value = res;
+        if(isNaN(document.getElementById("display").value)){
+            document.getElementById("display").value = 0;
+            reset();
+        }
     } else if (`${opID}` === '='){
 
     } else if (`${opID}` === 'clear'){
@@ -94,6 +140,7 @@ const reset = function(){
     disValue = "";
     value = 0;
     value2 = 0;
+    document.getElementById("display").value = 0;
 }
 
 while(disValue != ""){
