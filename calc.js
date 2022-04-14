@@ -37,12 +37,17 @@ const operate = function (operator, ...arg){
 
 console.log(operate(subtract, 5, 4,3,4,5))
 
+let value2 = 5;
+let value = 0;
 let disValue = "";
+let res = 0;
+
 
 const numPress = function(btnID){
     let num1 = `${btnID}`
     document.getElementById("display").value = disValue + num1;
     disValue = document.getElementById("display").value;
+    value2 = parseInt(btnID);
 }
 
 const numPress2 = function(btnID){
@@ -52,17 +57,11 @@ const numPress2 = function(btnID){
 
 const opPress = function(opID){
     if(`${opID}` === '+'){
-        let value = parseInt(document.getElementById("display").value);
-        const btns = document.getElementById('btncontain');
-        btns.addEventListener('click', (event) => {
-            const isButton = event.target.nodeName === 'BUTTON';
-            let value2 = parseInt(event.target.id);
-            if(!isButton){
-                return;
-            }
-        })
-        let res = operate(add, value, value2);
-
+        if(res === 0) value = parseInt(disValue);
+        res = add(value, value2);
+        console.log(res, value, value2);
+        value = res;
+        disValue = "";
         document.getElementById("display").value = res;
     } else if (`${opID}` === '-'){
 
@@ -75,12 +74,19 @@ const opPress = function(opID){
     } else if (`${opID}` === 'clear'){
         reset();
     }
-    
 }
+
+
+/* const numId = function (btnID){
+    value2 = parseInt(`${btnID}`);
+} */
+    
 
 const reset = function(){
     document.getElementById("display").value = "";
     disValue = "";
 }
 
+while(disValue != ""){
 
+}
