@@ -93,7 +93,7 @@ const opPress = function(opID){
     } else if (`${opID}` === '*'){
         if(res === 0){
             value = parseInt(disValue);
-            value2 = 0; 
+            value2 = 1; 
         }
         res = multiply(value, value2);
         value = res;
@@ -109,7 +109,7 @@ const opPress = function(opID){
     } else if (`${opID}` === '/'){
         if(res === 0){
             value = parseInt(disValue);
-            value2 = 0; 
+            value2 = 1; 
         }
         res = divide(value, value2);
         value = res;
