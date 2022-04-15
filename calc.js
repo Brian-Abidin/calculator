@@ -41,7 +41,8 @@ let value2 = 0;
 let value = 0;
 let disValue = "";
 let res = 0;
-let equalDone = 0;
+let equalDone = 1;
+let op;
 
 
 const numPress = function(btnID){
@@ -59,11 +60,12 @@ const numPress2 = function(btnID){
 
 const opPress = function(opID){
     if(`${opID}` === '+'){
+        equalDone = 0;
+        op = '+';
         if(res === 0){
             value = parseInt(disValue);
             value2 = 0; 
         }
-        equalDone === 0;
         res = add(value, value2);
         document.getElementById("display").value = res;
         value = res;
@@ -77,7 +79,9 @@ const opPress = function(opID){
         }
         
     } else if (`${opID}` === '-'){
-        equalDone === 0;
+        equalDone = 0;
+        op = '-';
+        console.log(value);
         if(res === 0){
             value = parseInt(disValue);
             value2 = 0; 
@@ -94,7 +98,8 @@ const opPress = function(opID){
             reset();
         }
     } else if (`${opID}` === '*'){
-        equalDone === 0;
+        equalDone = 0;
+        op = '*';
         if(res === 0){
             value = parseInt(disValue);
             value2 = 1; 
@@ -111,7 +116,8 @@ const opPress = function(opID){
             reset();
         }
     } else if (`${opID}` === '/'){
-        equalDone === 0;
+        equalDone = 0;
+        op = '/';
         if(res === 0){
             value = parseInt(disValue);
             value2 = 1; 
@@ -128,8 +134,23 @@ const opPress = function(opID){
             reset();
         }
     } else if (`${opID}` === '='){
-        if(equalDone === 0){
-            res = value + parseInt(document.getElementById("display").value);
+        if(equalDone === 0 && op === '+'){
+            res = add(value, parseInt(document.getElementById("display").value));
+            document.getElementById("display").value = res;
+            console.log(equalDone);
+            equalDone = 1;
+        } else if(equalDone === 0 && op === '-'){
+            res = subtract(value, parseInt(document.getElementById("display").value));
+            document.getElementById("display").value = res;
+            console.log(equalDone);
+            equalDone = 1;
+        } else if(equalDone === 0 && op === '*'){
+            res = multiply(value, parseInt(document.getElementById("display").value));
+            document.getElementById("display").value = res;
+            console.log(equalDone);
+            equalDone = 1;
+        } else if(equalDone === 0 && op === '/'){
+            res = divide(value, parseInt(document.getElementById("display").value));
             document.getElementById("display").value = res;
             console.log(equalDone);
             equalDone = 1;
@@ -147,4 +168,5 @@ const reset = function(){
     value = 0;
     value2 = 0;
     document.getElementById("display").value = 0;
+    equalDone = 0;
 }
