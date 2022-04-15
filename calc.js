@@ -71,7 +71,6 @@ const opPress = function(opID){
         value = res;
         console.log(res, value, value2);
         value2 = res;
-        console.log(value2, equalDone);
         disValue = "";
         if(isNaN(document.getElementById("display").value)){
             document.getElementById("display").value = 0;
@@ -90,7 +89,6 @@ const opPress = function(opID){
         value = res;
         console.log(res, value, value2);
         value2 = res;
-        console.log(value2);
         disValue = "";
         document.getElementById("display").value = res;
         if(isNaN(document.getElementById("display").value)){
@@ -108,7 +106,6 @@ const opPress = function(opID){
         value = res;
         console.log(res, value, value2);
         value2 = res;
-        console.log(value2);
         disValue = "";
         document.getElementById("display").value = res;
         if(isNaN(document.getElementById("display").value)){
@@ -126,7 +123,6 @@ const opPress = function(opID){
         value = res;
         console.log(res, value, value2);
         value2 = res;
-        console.log(value2);
         disValue = "";
         document.getElementById("display").value = res;
         if(isNaN(document.getElementById("display").value)){
@@ -165,7 +161,7 @@ const opPress = function(opID){
 const reset = function(){
     document.getElementById("display").value = "";
     disValue = "";
-    value = 0;
+    res = 0;
     value2 = 0;
     document.getElementById("display").value = 0;
     equalDone = 0;
