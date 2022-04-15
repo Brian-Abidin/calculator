@@ -35,8 +35,6 @@ const operate = function (operator, ...arg){
     return result;
 }
 
-console.log(operate(subtract, 5, 4,3,4,5))
-
 let value2 = 0;
 let value = 0;
 let disValue = "";
@@ -44,33 +42,28 @@ let res = 0;
 let equalDone = 1;
 let op;
 
-
-const numPress = function(btnID){
-    let num1 = `${btnID}`
+const numPress = function(numID){
+    let num1 = `${numID}`
     document.getElementById("display").value = disValue + num1;
     disValue = document.getElementById("display").value;
-    value2 = parseInt(document.getElementById("display").value);
+    value2 = parseInt(disValue);
+    // run operator that was clicked 
     
-}
-
-const numPress2 = function(btnID){
-    document.getElementById("display").value = (`${btnID}`);
-    return btnID;
 }
 
 const opPress = function(opID){
     if(`${opID}` === '+'){
-        equalDone = 0;
-        op = '+';
-        if(res === 0){
+        equalDone = 0; // equals hasn't been clicked
+        op = '+'; // currently in + operation
+        if(res === 0){ //used for the first operation
             value = parseInt(disValue);
             value2 = 0; 
         }
         res = add(value, value2);
         document.getElementById("display").value = res;
         value = res;
+        value2 = value;
         console.log(res, value, value2);
-        value2 = res;
         disValue = "";
         if(isNaN(document.getElementById("display").value)){
             document.getElementById("display").value = 0;
@@ -85,12 +78,13 @@ const opPress = function(opID){
             value = parseInt(disValue);
             value2 = 0; 
         }
+
         res = subtract(value, value2);
-        value = res;
-        console.log(res, value, value2);
-        value2 = res;
-        disValue = "";
         document.getElementById("display").value = res;
+        value = res;
+        value2 = value;
+        console.log(res, value, value2);
+        disValue = "";
         if(isNaN(document.getElementById("display").value)){
             document.getElementById("display").value = 0;
             reset();
@@ -103,11 +97,11 @@ const opPress = function(opID){
             value2 = 1; 
         }
         res = multiply(value, value2);
-        value = res;
-        console.log(res, value, value2);
-        value2 = res;
-        disValue = "";
         document.getElementById("display").value = res;
+        value = res;
+        value2 = value;
+        console.log(res, value, value2); 
+        disValue = "";
         if(isNaN(document.getElementById("display").value)){
             document.getElementById("display").value = 0;
             reset();
@@ -120,11 +114,11 @@ const opPress = function(opID){
             value2 = 1; 
         }
         res = divide(value, value2);
-        value = res;
-        console.log(res, value, value2);
-        value2 = res;
-        disValue = "";
         document.getElementById("display").value = res;
+        value = res;
+        value2 = value;
+        console.log(res, value, value2);
+        disValue = "";
         if(isNaN(document.getElementById("display").value)){
             document.getElementById("display").value = 0;
             reset();
@@ -133,22 +127,18 @@ const opPress = function(opID){
         if(equalDone === 0 && op === '+'){
             res = add(value, parseInt(document.getElementById("display").value));
             document.getElementById("display").value = res;
-            console.log(equalDone);
             equalDone = 1;
         } else if(equalDone === 0 && op === '-'){
             res = subtract(value, parseInt(document.getElementById("display").value));
             document.getElementById("display").value = res;
-            console.log(equalDone);
             equalDone = 1;
         } else if(equalDone === 0 && op === '*'){
             res = multiply(value, parseInt(document.getElementById("display").value));
             document.getElementById("display").value = res;
-            console.log(equalDone);
             equalDone = 1;
         } else if(equalDone === 0 && op === '/'){
             res = divide(value, parseInt(document.getElementById("display").value));
             document.getElementById("display").value = res;
-            console.log(equalDone);
             equalDone = 1;
         }
     } else if (`${opID}` === 'clear'){
@@ -159,10 +149,10 @@ const opPress = function(opID){
     value2 = parseInt(`${btnID}`);
 } */
 const reset = function(){
-    document.getElementById("display").value = "";
     disValue = "";
     res = 0;
     value2 = 0;
     document.getElementById("display").value = 0;
     equalDone = 0;
 }
+
