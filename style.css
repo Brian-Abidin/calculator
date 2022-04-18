@@ -48,6 +48,15 @@ button{
 }
 
 .op {
-    background-color: grey;
+    background-color: rgb(107, 107, 107);
     color: white;
+}
+
+.clear{
+    background-color: rgb(230, 46, 46);
+    color: white;
+}
+
+.equal{
+    width: 104.5px;
 }
