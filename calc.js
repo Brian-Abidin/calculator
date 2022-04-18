@@ -244,6 +244,12 @@ const numPer = function(){
     document.getElementById("display").value = display;
 }
 
+const posNeg = function (){
+    display = parseInt(document.getElementById("display").value);
+    display = display * -1;
+    document.getElementById("display").value = display;
+}
+
 const opPress = function(opID){
     if(`${opID}` === '+') opAdd();
     if (`${opID}` === '-') opSub();
