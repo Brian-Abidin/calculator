@@ -97,9 +97,9 @@ const reset = function(){
 }
 
 const opAdd = function(){
-    equalDone = 0; // equals hasn't been clicked
-    op = '+'; // currently in + operation
-    if(res === 0){ //used for the first operation
+    equalDone = 0; 
+    op = '+'; 
+    if(res === 0){
         value = parseInt(disValue);
         value2 = 0;
         res = add(value, value2);
@@ -148,6 +148,7 @@ const opSub = function(){
     } else if(prevOp !== '-' && prevOp !== '='){
         opEqual();
         prevOp = '-';
+        console.log(res, value, value2);
     }
      else {
         res = subtract(value, value2);
@@ -165,9 +166,9 @@ const opSub = function(){
 }
 
 const opMul = function(){
-    equalDone = 0; // equals hasn't been clicked
-    op = '*'; // currently in + operation
-    if(res === 0){ //used for the first operation
+    equalDone = 0;
+    op = '*'; 
+    if(res === 0){ 
         value = parseInt(disValue);
         value2 = 1;
         res = multiply(value, value2);
@@ -199,9 +200,9 @@ const opMul = function(){
 }
 
 const opDiv = function(){
-    equalDone = 0; // equals hasn't been clicked
-    op = '/'; // currently in + operation
-    if(res === 0){ //used for the first operation
+    equalDone = 0; 
+    op = '/'; 
+    if(res === 0){ 
         value = parseInt(disValue);
         value2 = 1;
         res = divide(value, value2);
