@@ -44,10 +44,15 @@ const operate = function (operator, ...arg){
 }
 
 const numPress = function(numID){
+   if(prevOp === '='){
+        disValue = "";
+        res = 0;
+    } 
     let num1 = `${numID}`
     document.getElementById("display").value = disValue + num1;
     disValue = document.getElementById("display").value;
     value2 = parseInt(disValue);
+    
     // run operator that was clicked 
     
 }
@@ -136,6 +141,7 @@ const opEqual = function(){
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res; 
+        console.log(res, value, value2);
         disValue = "";
         prevOp = "=";
     } else if(equalDone === 0 && prevOp === '-'){
@@ -143,6 +149,7 @@ const opEqual = function(){
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res;
+        console.log(res, value, value2);
         disValue = "";
         prevOp = "=";
     } else if(equalDone === 0 && prevOp === '*'){
