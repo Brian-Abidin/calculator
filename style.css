@@ -39,11 +39,15 @@ body {
 #btncontain{
     background-color: lightseagreen;
     padding-left: 17px;
-    
 }
 
 button{
     width: 50px;
     height: 20px;
     background-color: white;
+}
+
+.op {
+    background-color: rgb(9, 18, 29);
+    color: white;
 }

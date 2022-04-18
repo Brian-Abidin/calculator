@@ -16,22 +16,23 @@
             <div class="calc">
                 <input type="text" id="display" name="display">
                 <div id = "btncontain">
+                    <button id="clear" class= "clear" onclick= "opPress(this.id)">AC</button>
+                    <button id="%" onclick="numPer(this.id)">%</button>
                     <button id="1" onclick="numPress(this.id)">1</button>
                     <button id="2" onclick="numPress(this.id)">2</button>
                     <button id="3" onclick="numPress(this.id)">3</button>
+                    <button id="+" class= "op" onclick="opPress(this.id)">+</button>
                     <button id="4" onclick="numPress(this.id)">4</button>                    
                     <button id="5" onclick="numPress(this.id)">5</button>
                     <button id="6" onclick="numPress(this.id)">6</button>
+                    <button id="-" class= "op" onclick="opPress(this.id)">-</button>
                     <button id="7" onclick="numPress(this.id)">7</button>
                     <button id="8" onclick="numPress(this.id)">8</button>
                     <button id="9" onclick="numPress(this.id)">9</button>
+                    <button id="/" class= "op" onclick="opPress(this.id)">/</button>
                     <button id="0" onclick="numPress(this.id)">0</button>
-                    <button id="+" onclick="opPress(this.id)">+</button>
-                    <button id="-" onclick="opPress(this.id)">-</button>
-                    <button id="/" onclick="opPress(this.id)">/</button>
-                    <button id="*" onclick="opPress(this.id)">*</button>
-                    <button id="=" onclick="opPress(this.id)">=</button>
-                    <button id="clear" onclick= "opPress(this.id)">AC</button>
+                    <button id="=" class= "equal" onclick="opPress(this.id)">=</button>
+                    <button id="*" class= "op" onclick="opPress(this.id)">*</button>
                 </div>
             </div>
         </div>

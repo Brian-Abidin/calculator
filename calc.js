@@ -238,6 +238,12 @@ const opDiv = function(){
     }
 }
 
+const numPer = function(){
+    display = parseInt(document.getElementById("display").value);
+    display = display * 0.01;
+    document.getElementById("display").value = display;
+}
+
 const opPress = function(opID){
     if(`${opID}` === '+') opAdd();
     if (`${opID}` === '-') opSub();
