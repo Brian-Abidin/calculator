@@ -55,8 +55,10 @@ const numPress = function(numID){
 }
 
 const opEqual = function(){
+    equalDone = 0;
     if(equalDone === 0 && prevOp === '+'){
-        res = add(value, parseInt(document.getElementById("display").value));
+        value2 = parseInt(document.getElementById("display").value);
+        res = add(value, value2);
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res; 
@@ -64,7 +66,8 @@ const opEqual = function(){
         disValue = "";
         prevOp = "=";
     } else if(equalDone === 0 && prevOp === '-'){
-        res = subtract(value, parseInt(document.getElementById("display").value));
+        value2 = parseInt(document.getElementById("display").value);
+        res = subtract(value, value2);
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res;
@@ -72,6 +75,7 @@ const opEqual = function(){
         disValue = "";
         prevOp = "=";
     } else if(equalDone === 0 && prevOp === '*'){
+        value2 = parseInt(document.getElementById("display").value);
         res = multiply(value, parseInt(document.getElementById("display").value));
         document.getElementById("display").value = res;
         equalDone = 1;
@@ -79,7 +83,8 @@ const opEqual = function(){
         disValue = "";
         prevOp = "=";
     } else if(equalDone === 0 && prevOp === '/'){
-        res = divide(value, parseInt(document.getElementById("display").value));
+        value2 = parseInt(document.getElementById("display").value);
+        res = divide(value, value2);
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res; 
