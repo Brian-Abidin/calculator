@@ -51,14 +51,15 @@ const numPress = function(numID){
     let num1 = `${numID}`
     document.getElementById("display").value = disValue + num1;
     disValue = document.getElementById("display").value;
-    value2 = parseInt(disValue); 
+    value2 = parseFloat(disValue);
+    console.log('disValue:', disValue);
 }
 
 const opEqual = function(){
     equalDone = 0;
     if(equalDone === 0 && prevOp === '+'){
-        value2 = parseInt(document.getElementById("display").value);
-        res = add(value, value2);
+        value2 = parseFloat(document.getElementById("display").value);
+        res = Number(add(value, value2).toFixed(5));
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res; 
@@ -66,8 +67,8 @@ const opEqual = function(){
         disValue = "";
         prevOp = "=";
     } else if(equalDone === 0 && prevOp === '-'){
-        value2 = parseInt(document.getElementById("display").value);
-        res = subtract(value, value2);
+        value2 = parseFloat(document.getElementById("display").value);
+        res = Number(subtract(value, value2).toFixed(5));
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res;
@@ -75,16 +76,16 @@ const opEqual = function(){
         disValue = "";
         prevOp = "=";
     } else if(equalDone === 0 && prevOp === '*'){
-        value2 = parseInt(document.getElementById("display").value);
-        res = multiply(value, parseInt(document.getElementById("display").value));
+        value2 = parseFloat(document.getElementById("display").value);
+        res = Number(multiply(value, value2).toFixed(5));
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res;
         disValue = "";
         prevOp = "=";
     } else if(equalDone === 0 && prevOp === '/'){
-        value2 = parseInt(document.getElementById("display").value);
-        res = divide(value, value2);
+        value2 = parseFloat(document.getElementById("display").value);
+        res = Number(divide(value, value2).toFixed(5));
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res; 
@@ -105,9 +106,9 @@ const opAdd = function(){
     equalDone = 0; 
     op = '+'; 
     if(res === 0){
-        value = parseInt(disValue);
+        value = value2;
         value2 = 0;
-        res = add(value, value2);
+        res = Number(add(value, value2).toFixed(5));
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
@@ -121,7 +122,7 @@ const opAdd = function(){
         prevOp = '+';
     }
     else {
-        res = add(value, value2);
+        res = Number(add(value, value2).toFixed(5));
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
@@ -139,9 +140,9 @@ const opSub = function(){
     equalDone = 0;
     op = '-';
     if(res === 0){
-        value = parseInt(disValue);
+        value = value2;
         value2 = 0;
-        res = subtract(value, value2);
+        res = Number(subtract(value, value2).toFixed(5));
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
@@ -156,7 +157,7 @@ const opSub = function(){
         console.log(res, value, value2);
     }
      else {
-        res = subtract(value, value2);
+        res = Number(subtract(value, value2).toFixed(5));
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
@@ -174,9 +175,9 @@ const opMul = function(){
     equalDone = 0;
     op = '*'; 
     if(res === 0){ 
-        value = parseInt(disValue);
+        value = value2;
         value2 = 1;
-        res = multiply(value, value2);
+        res = Number(multiply(value, value2).toFixed(5));
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
@@ -190,7 +191,7 @@ const opMul = function(){
         prevOp = '*';
     }
     else {
-        res = multiply(value, value2);
+        res = Number(multiply(value, value2).toFixed(5));
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
@@ -208,9 +209,9 @@ const opDiv = function(){
     equalDone = 0; 
     op = '/'; 
     if(res === 0){ 
-        value = parseInt(disValue);
+        value = value2;
         value2 = 1;
-        res = divide(value, value2);
+        res = Number(divide(value, value2).toFixed(5));
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
@@ -224,7 +225,7 @@ const opDiv = function(){
         prevOp = '/';
     }
     else {
-        res = divide(value, value2);
+        res = Number(divide(value, value2).toFixed(5));
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
@@ -239,15 +240,28 @@ const opDiv = function(){
 }
 
 const numPer = function(){
-    display = parseInt(document.getElementById("display").value);
-    display = display * 0.01;
-    document.getElementById("display").value = display;
+    display = document.getElementById("display").value * 0.01;
+    value2 = display;
+    console.log(value2);
+    document.getElementById("display").value = value2;
 }
 
 const posNeg = function (){
-    display = parseInt(document.getElementById("display").value);
-    display = display * -1;
-    document.getElementById("display").value = display;
+    display = document.getElementById("display").value * -1;
+    value2 = display;
+    console.log(value2);
+    document.getElementById("display").value = value2;
+}
+
+const decimal = function(){
+    display = document.getElementById("display").value;
+    if(display.includes(".")){
+    } else {
+        disValue = value2 + '.';
+        value2 = disValue;
+        document.getElementById("display").value = value2;
+        console.log(value2)
+    } 
 }
 
 const opPress = function(opID){
