@@ -209,7 +209,7 @@ const opAdd = function(){
     }
 }
 
-const opSub = function(op){
+const opSub = function(){
     equalDone = 0;
     op = '-';
     if(res === 0){
