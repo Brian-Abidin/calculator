@@ -131,28 +131,28 @@ const opDiv = function(){
 }
 
 const opEqual = function(){
-    if(equalDone === 0 && op === '+'){
+    if(equalDone === 0 && prevOp === '+'){
         res = add(value, parseInt(document.getElementById("display").value));
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res; 
         disValue = "";
         prevOp = "=";
-    } else if(equalDone === 0 && op === '-'){
+    } else if(equalDone === 0 && prevOp === '-'){
         res = subtract(value, parseInt(document.getElementById("display").value));
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res;
         disValue = "";
         prevOp = "=";
-    } else if(equalDone === 0 && op === '*'){
+    } else if(equalDone === 0 && prevOp === '*'){
         res = multiply(value, parseInt(document.getElementById("display").value));
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res;
         disValue = "";
         prevOp = "=";
-    } else if(equalDone === 0 && op === '/'){
+    } else if(equalDone === 0 && prevOp === '/'){
         res = divide(value, parseInt(document.getElementById("display").value));
         document.getElementById("display").value = res;
         equalDone = 1;
@@ -194,7 +194,11 @@ const opAdd = function(){
         prevOp = '+';
     } else if(prevOp === '='){
         prevOp = '+';
-    } else {
+    } else if(prevOp !== '+' && prevOp !== '='){
+        opEqual();
+        prevOp = '+';
+    }
+    else {
         res = add(value, value2);
         document.getElementById("display").value = res;
         value = res;
@@ -224,7 +228,11 @@ const opSub = function(){
         prevOp = "-";
     } else if(prevOp === '='){
         prevOp = '-';   
-    } else {
+    } else if(prevOp !== '-' && prevOp !== '='){
+        opEqual();
+        prevOp = '-';
+    }
+     else {
         res = subtract(value, value2);
         document.getElementById("display").value = res;
         value = res;
