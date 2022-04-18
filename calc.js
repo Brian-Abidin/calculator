@@ -51,88 +51,7 @@ const numPress = function(numID){
     let num1 = `${numID}`
     document.getElementById("display").value = disValue + num1;
     disValue = document.getElementById("display").value;
-    value2 = parseInt(disValue);
-    
-    // run operator that was clicked 
-    
-}
-
-/* const opAdd = function(){
-    equalDone = 0; // equals hasn't been clicked
-    op = '+'; // currently in + operation
-    if(res === 0){ //used for the first operation
-        value = parseInt(disValue);
-        value2 = 0;
-    }
-    res = add(value, value2);
-    document.getElementById("display").value = res;
-    value = res;
-    value2 = value;
-    console.log(res, value, value2);
-    disValue = "";
-    if(isNaN(document.getElementById("display").value)){
-        document.getElementById("display").value = 0;
-        reset();
-    }
-} 
-
-const opSub = function(){
-    equalDone = 0;
-    op = '-';
-    
-    console.log(value);
-    if(res === 0){
-        value = parseInt(disValue);
-        value2 = 0; 
-    }
-    res = subtract(value, value2);
-    document.getElementById("display").value = res;
-    value = res;
-    value2 = value;
-    console.log(res, value, value2);
-    disValue = "";
-    if(isNaN(document.getElementById("display").value)){
-        document.getElementById("display").value = 0;
-        reset();
-    }
-} */
-
-const opMul = function(){
-    equalDone = 0;
-    op = '*';
-    if(res === 0){
-        value = parseInt(disValue);
-        value2 = 1; 
-    }
-    res = multiply(value, value2);
-    document.getElementById("display").value = res;
-    value = res;
-    value2 = 1;
-    console.log(res, value, value2); 
-    disValue = "";
-    if(isNaN(document.getElementById("display").value)){
-        document.getElementById("display").value = 0;
-        reset();
-    }   
-}
-
-const opDiv = function(){
-    equalDone = 0;
-    op = '/';
-    if(res === 0){
-        value = parseInt(disValue);
-        value2 = 1; 
-    }
-    res = divide(value, value2);
-    document.getElementById("display").value = res;
-    value = res;
-    value2 = value;
-    console.log(res, value, value2);
-    disValue = "";
-    if(isNaN(document.getElementById("display").value)){
-        document.getElementById("display").value = 0;
-        reset();
-    }
+    value2 = parseInt(disValue); 
 }
 
 const opEqual = function(){
@@ -175,15 +94,6 @@ const reset = function(){
     value2 = 0;
     document.getElementById("display").value = 0;
     equalDone = 0;
-}
-
-const opPress = function(opID){
-    if(`${opID}` === '+') opAdd();
-    if (`${opID}` === '-') opSub();
-    if (`${opID}` === '*') opMul();
-    if (`${opID}` === '/') opDiv();
-    if (`${opID}` === '=') opEqual();
-    if (`${opID}` === 'clear') reset();
 }
 
 const opAdd = function(){
@@ -252,4 +162,81 @@ const opSub = function(){
         document.getElementById("display").value = 0;
         reset();
     }
+}
+
+const opMul = function(){
+    equalDone = 0; // equals hasn't been clicked
+    op = '*'; // currently in + operation
+    if(res === 0){ //used for the first operation
+        value = parseInt(disValue);
+        value2 = 1;
+        res = multiply(value, value2);
+        document.getElementById("display").value = res;
+        value = res;
+        value2 = value;
+        console.log(res, value, value2);
+        disValue = "";
+        prevOp = '*';
+    } else if(prevOp === '='){
+        prevOp = '*';
+    } else if(prevOp !== '*' && prevOp !== '='){
+        opEqual();
+        prevOp = '*';
+    }
+    else {
+        res = multiply(value, value2);
+        document.getElementById("display").value = res;
+        value = res;
+        value2 = value;
+        console.log(res, value, value2);
+        disValue = "";
+        prevOp = '*';
+    }
+    if(isNaN(document.getElementById("display").value)){
+        document.getElementById("display").value = 0;
+        reset();
+    }
+}
+
+const opDiv = function(){
+    equalDone = 0; // equals hasn't been clicked
+    op = '/'; // currently in + operation
+    if(res === 0){ //used for the first operation
+        value = parseInt(disValue);
+        value2 = 1;
+        res = divide(value, value2);
+        document.getElementById("display").value = res;
+        value = res;
+        value2 = value;
+        console.log(res, value, value2);
+        disValue = "";
+        prevOp = '/';
+    } else if(prevOp === '='){
+        prevOp = '/';
+    } else if(prevOp !== '/' && prevOp !== '='){
+        opEqual();
+        prevOp = '/';
+    }
+    else {
+        res = divide(value, value2);
+        document.getElementById("display").value = res;
+        value = res;
+        value2 = value;
+        console.log(res, value, value2);
+        disValue = "";
+        prevOp = '/';
+    }
+    if(isNaN(document.getElementById("display").value)){
+        document.getElementById("display").value = 0;
+        reset();
+    }
+}
+
+const opPress = function(opID){
+    if(`${opID}` === '+') opAdd();
+    if (`${opID}` === '-') opSub();
+    if (`${opID}` === '*') opMul();
+    if (`${opID}` === '/') opDiv();
+    if (`${opID}` === '=') opEqual();
+    if (`${opID}` === 'clear') reset();
 }
