@@ -1,12 +1,12 @@
-let value2 = 0;
-let value = 0;
-let disValue = "";
-let res = 0;
-let equalDone = 1;
-let op;
-let prevOp;
+let value2 = 0; // second number being calculated
+let value = 0; // first number being calculated
+let disValue = ""; //display value
+let res = 0; // result
+let equalDone = 1; // has equals been clicked? 1 = true, 0 = false
+let op; // current operator
+let prevOp; // previous operator pressed 
 
-const add = function (){
+const add = function (){ 
     let sum = arguments[0];
     for (let i = 1; i < arguments.length; i++) {
         sum += arguments[i];
@@ -38,11 +38,6 @@ const divide = function (){
     return quo;
 }
 
-const operate = function (operator, ...arg){
-    let result = operator(...arg);
-    return result;
-}
-
 const numPress = function(numID){
    if(prevOp === '='){
         res = 0;
@@ -51,7 +46,6 @@ const numPress = function(numID){
     document.getElementById("display").value = disValue + num1;
     disValue = parseFloat(document.getElementById("display").value);
     value2 = disValue;
-    console.log('disValue:', disValue);
 }
 
 const opEqual = function(){
@@ -61,7 +55,6 @@ const opEqual = function(){
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res; 
-        console.log(res, value, value2);
         disValue = "";
         prevOp = "=";
     } else if(equalDone === 0 && prevOp === '-'){
@@ -69,7 +62,6 @@ const opEqual = function(){
         document.getElementById("display").value = res;
         equalDone = 1;
         value = res;
-        console.log(res, value, value2);
         disValue = "";
         prevOp = "=";
     } else if(equalDone === 0 && prevOp === '*'){
@@ -107,7 +99,6 @@ const opAdd = function(){
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
-        console.log(res, value, value2);
         disValue = "";
         prevOp = '+';
     } else if(prevOp === '='){
@@ -121,7 +112,6 @@ const opAdd = function(){
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
-        console.log(res, value, value2);
         disValue = "";
         prevOp = '+';
     }
@@ -141,7 +131,6 @@ const opSub = function(){
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
-        console.log(res, value, value2);
         disValue = "";
         prevOp = "-";
     } else if(prevOp === '='){
@@ -149,14 +138,12 @@ const opSub = function(){
     } else if(prevOp !== '-' && prevOp !== '='){
         opEqual();
         prevOp = '-';
-        console.log(res, value, value2);
     }
      else {
         res = Number(subtract(value, value2).toFixed(5));
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
-        console.log(res, value, value2);
         disValue = "";
         prevOp = "-";
     }
@@ -176,7 +163,6 @@ const opMul = function(){
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
-        console.log(res, value, value2);
         disValue = "";
         prevOp = '*';
     } else if(prevOp === '='){
@@ -190,7 +176,6 @@ const opMul = function(){
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
-        console.log(res, value, value2);
         disValue = "";
         prevOp = '*';
     }
@@ -210,7 +195,6 @@ const opDiv = function(){
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
-        console.log(res, value, value2);
         disValue = "";
         prevOp = '/';
     } else if(prevOp === '='){
@@ -224,7 +208,6 @@ const opDiv = function(){
         document.getElementById("display").value = res;
         value = res;
         value2 = value;
-        console.log(res, value, value2);
         disValue = "";
         prevOp = '/';
     }
@@ -237,14 +220,12 @@ const opDiv = function(){
 const numPer = function(){
     display = document.getElementById("display").value * 0.01;
     value2 = display;
-    console.log(value2);
     document.getElementById("display").value = value2;
 }
 
 const posNeg = function (){
     display = document.getElementById("display").value * -1;
     value2 = display;
-    console.log(value2);
     document.getElementById("display").value = value2;
 }
 
@@ -255,7 +236,6 @@ const decimal = function(){
         disValue = value2 + '.';
         value2 = disValue;
         document.getElementById("display").value = value2;
-        console.log(value2)
     } 
 }
 
