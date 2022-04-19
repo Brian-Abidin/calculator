@@ -45,7 +45,6 @@ const operate = function (operator, ...arg){
 
 const numPress = function(numID){
    if(prevOp === '='){
-        disValue = "";
         res = 0;
     } 
     let num1 = `${numID}`
