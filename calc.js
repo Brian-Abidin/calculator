@@ -52,7 +52,7 @@ const opEqual = function(){
     equalDone = 0;
     if(equalDone === 0 && prevOp === '+'){
         res = Number(add(value, value2).toFixed(5));
-        document.getElementById("display").value = res;
+        document.getElementById("display").value = res; 
         equalDone = 1;
         value = res; 
         disValue = "";
