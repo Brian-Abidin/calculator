@@ -41,15 +41,18 @@ const divide = function (){
 const numPress = function(numID){
    if(prevOp === '='){
         res = 0;
-    } 
+    }
     let num1 = `${numID}`
     document.getElementById("display").value = disValue + num1;
     disValue = parseFloat(document.getElementById("display").value);
+    console.log(value2);
     value2 = disValue;
+    
 }
 
 const opEqual = function(){
     equalDone = 0;
+    isNeg = 0;
     if(equalDone === 0 && prevOp === '+'){
         res = Number(add(value, value2).toFixed(5));
         document.getElementById("display").value = res; 
@@ -220,12 +223,14 @@ const opDiv = function(){
 const numPer = function(){
     display = document.getElementById("display").value * 0.01;
     value2 = display;
+    disValue = value2; 
     document.getElementById("display").value = value2;
 }
 
-const posNeg = function (){
-    display = document.getElementById("display").value * -1;
+const posNeg = function (){ 
+    let display = document.getElementById("display").value * -1;
     value2 = display;
+    disValue = value2; 
     document.getElementById("display").value = value2;
 }
 
