@@ -30,8 +30,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 500px;
-    height: 500px;
+    width: 250px;
+    height: 250px;
     background-color: lightseagreen;
     border: 2px solid black;
 }
